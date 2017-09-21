@@ -2,7 +2,7 @@ package kz.loanapp.models;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by ardak on 9/21/17.
@@ -11,6 +11,7 @@ import java.sql.Date;
 @Entity
 @Table(name="app_loan")
 public class Loan {
+
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name="ID_", nullable = false)
@@ -19,8 +20,7 @@ public class Loan {
         @Column(name="DATE_APPLIED_", nullable = false)
         private Date dateApplied;
 
-
-        @Column(name="TERM_DATE_", nullable = false)
+        @Column(name="TERM_DATE_")
         private Date termDate;
 
         @Column(name="AMOUNT_", nullable = false)
@@ -29,8 +29,13 @@ public class Loan {
         @Column(name="COUNTRY_APPLIED_FROM_", nullable = false)
         private String countryFrom;
 
+        @Column(name="STATUS_")
+        private boolean isApproved;
+
+
         @ManyToOne
         @JoinColumn(name="USER_")
+
         private User user;
 
         public User getUser() {
@@ -80,4 +85,13 @@ public class Loan {
         public void setCountryFrom(String countryFrom) {
             this.countryFrom = countryFrom;
         }
+
+        public boolean isApproved() {
+            return isApproved;
+        }
+
+        public void setApproved(boolean approved) {
+            isApproved = approved;
+        }
+
 }
