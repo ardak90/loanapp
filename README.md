@@ -24,7 +24,7 @@ WebUtils:
    getClientIpAddress(HttpServletRequest request) - method used to get users Ip address  
   
 DateUtils:   
-   getTimeFrameDate(Date dateNow, long timeframe) - method used to get starting date (timeframe), after that this date used in                    query to get all loan applications from date applied and timeframe date   
+   getTimeFrameDate(Date dateNow, long timeframe) - method used to get starting date (timeframe), after that this date used in                    query to get all loan applications from timeframe date to date applied   
                    Example:  
                    20 seconds - timeframe  
                    date_applied_ > 'Fri Sep 22 12:20:32 ALMT 2017' AND date_applied_ < 'Fri Sep 22 12:20:52 ALMT 2017'
