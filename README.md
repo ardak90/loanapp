@@ -1,6 +1,6 @@
 # loanapp
 RESTful web service for the loan app  
-Used technology stack: Java, Spring Framework, DAO, Facade Pattern   
+Used technology stack: Java, Spring Framework, DAO, Facade Pattern, Postgres   
 
 REST API:   
 User:  
@@ -14,7 +14,7 @@ Loan:
 
 Blacklist:   
 /blacklist/add/{userId} - POST - add user to blacklist  
-/blacklist/remove{userId} - GET - remove user from blacklist  
+/blacklist/remove/{userId} - GET - remove user from blacklist  
   
 Explanation:   
 To perform origin country resolution used this web service: http://ip-api.com/json/{ipAddress}  
