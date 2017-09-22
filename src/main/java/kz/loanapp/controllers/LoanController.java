@@ -6,12 +6,8 @@ import kz.loanapp.services.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-
-import javax.jws.WebService;
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 /**
@@ -27,7 +23,7 @@ public class LoanController {
     @Autowired
     LoanService loanService;
 
-    
+
     @RequestMapping(value = "/{userId}", method = RequestMethod.POST)
     public ResponseEntity createLoan(@RequestBody LoanDto loanDto, @PathVariable String userId, HttpServletRequest request){
         LoanDto loan = loanServiceFacade.persistLoan(loanDto, userId, request);
@@ -35,7 +31,7 @@ public class LoanController {
             return new ResponseEntity(loan, HttpStatus.OK);
         }
         else {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("You can't apply for loan, please contact our manager in your country. Thank You", HttpStatus.BAD_REQUEST);
         }
     }
 

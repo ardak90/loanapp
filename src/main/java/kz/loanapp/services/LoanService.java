@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,5 +40,9 @@ public class LoanService {
 
     public LoanDto findLoanById(Long id){
         return loanDao.findLoanById(id);
+    }
+
+    public int getCountAppInTimeframe(Date dateNow, Long secondTimeframe, String countryFrom){
+        return loanDao.getCountAppInTimeframe(dateNow, secondTimeframe, countryFrom);
     }
 }

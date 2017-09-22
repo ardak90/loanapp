@@ -5,6 +5,7 @@ import kz.loanapp.dto.LoanDto;
 import kz.loanapp.dto.UserDto;
 import kz.loanapp.models.Loan;
 import kz.loanapp.models.User;
+import kz.loanapp.utils.DateUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -61,6 +62,17 @@ public class LoanDaoImpl implements LoanDao {
     @Override
     public void removeLoan(Long id) {
         em.remove(em.getReference(Loan.class, id));
+    }
+
+    @Override
+    public int getCountAppInTimeframe(Date dateNow, Long secondTimeframe, String countryFrom){
+        Date timeframeDate = DateUtils.getTimeFrameDate(dateNow, secondTimeframe);
+        long count = (Long) em.createQuery("SELECT count(l) FROM Loan l WHERE l.countryFrom = :countryfrom AND l.dateApplied>:timeframedate AND l.dateApplied<:datenow ")
+                .setParameter("countryfrom", countryFrom)
+                .setParameter("timeframedate", timeframeDate)
+                .setParameter("datenow", dateNow).getSingleResult();
+
+        return (int)count;
     }
 
 }

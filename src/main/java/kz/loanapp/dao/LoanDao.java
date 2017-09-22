@@ -3,6 +3,7 @@ package kz.loanapp.dao;
 import kz.loanapp.dto.LoanDto;
 import org.hibernate.SessionFactory;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,5 +17,6 @@ public interface LoanDao {
     List<LoanDto> listApprovedLoans();
     List<LoanDto> listApprovedLoansByUserId(String id);
     void removeLoan(Long id);
+    int getCountAppInTimeframe(Date dateNow, Long secondTimeframe, String countryFrom);
 
 }
