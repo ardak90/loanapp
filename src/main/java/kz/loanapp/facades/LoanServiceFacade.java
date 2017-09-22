@@ -2,10 +2,8 @@ package kz.loanapp.facades;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import kz.loanapp.dto.LoanDto;
 import kz.loanapp.dto.UserDto;
-import kz.loanapp.models.Loan;
 import kz.loanapp.services.BlacklistService;
 import kz.loanapp.services.LoanService;
 import kz.loanapp.services.UserService;
@@ -13,13 +11,9 @@ import kz.loanapp.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 import java.util.Date;
 
@@ -33,7 +27,6 @@ public class LoanServiceFacade {
     private static final Long timeframeInSeconds = new Long(10);   // need to be placed in config in the future
     private static final Long numberOfApplications = new Long(2);   // need to be placed in config in the future
 
-    WebUtils webUtils;
     @Autowired
     private ObjectMapper mapper;
     @Autowired
@@ -41,7 +34,7 @@ public class LoanServiceFacade {
     @Autowired
     private UserService userService;
     @Autowired
-    BlacklistService blacklistService;
+    private BlacklistService blacklistService;
 
     // used ip-api.com Web Service to get country code by Ip address of the client
 
@@ -69,7 +62,7 @@ public class LoanServiceFacade {
             JsonNode name = root.path("countryCode");
             return name.textValue();
         }
-        catch (ResourceAccessException e) {
+        catch (Exception e) {
             // returns countryCode as lv if web service not available for 12 seconds
             return "lv";
        }

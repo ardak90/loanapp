@@ -2,18 +2,11 @@ package kz.loanapp.dao.daoImpl;
 
 import kz.loanapp.dao.LoanDao;
 import kz.loanapp.dto.LoanDto;
-import kz.loanapp.dto.UserDto;
 import kz.loanapp.models.Loan;
-import kz.loanapp.models.User;
 import kz.loanapp.utils.DateUtils;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.transaction.Transactional;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package kz.loanapp.controllers;
 
 import kz.loanapp.dto.BlacklistDto;
-import kz.loanapp.dto.LoanDto;
 import kz.loanapp.dto.UserDto;
 import kz.loanapp.services.BlacklistService;
 import kz.loanapp.services.UserService;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by ardak on 9/22/17.
