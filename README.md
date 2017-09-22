@@ -1,13 +1,13 @@
 # loanapp
-RESTful web service for the loan app
-Used technology stack: Java, Spring Framework, DAO, Facade Pattern 
+RESTful web service for the loan app  
+Used technology stack: Java, Spring Framework, DAO, Facade Pattern   
 
-REST API: 
-User:
-/users/ - POST - create new User 
-
-Loan: 
-/loans/{userId} - POST - create new loan 
+REST API:   
+User:  
+/users/ - POST - create new User   
+  
+Loan:   
+/loans/{userId} - POST - create new loan   
 /loans/approved - GET - list all approved loans
 /loans/approved/{userId} - GET - list all approved loans by user id
 /loans/approve/{id} - GET - approve loan by loan id, by deault its false when created
